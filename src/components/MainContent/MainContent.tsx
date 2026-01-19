@@ -48,7 +48,7 @@ const MainContent: React.FC<MainContentProps> = () => {
     useEffect(() => {
         async function fetchMessages() {
             try {
-                const response = await fetch('http://localhost:5999/messages');
+                const response = await fetch('https://chat-api-watz.onrender.com/messages');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
