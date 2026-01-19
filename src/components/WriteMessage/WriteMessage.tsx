@@ -36,7 +36,7 @@ const WriteMessage: React.FC<WriteMessageProps> = (): React.JSX.Element => {
             }
 
             try {
-                const response = await fetch('http://localhost:5999/addMessage', {
+                const response = await fetch('https://chat-api-watz.onrender.com/addMessage', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
