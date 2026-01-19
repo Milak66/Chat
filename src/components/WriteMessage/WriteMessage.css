@@ -1,0 +1,42 @@
+.writeMessage {
+    display: flex;
+    justify-content: center;
+}
+
+.writeMessagePlace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.writeText {
+    font-size: 1.2vw;
+    color: rgb(150, 0, 150);
+    width: 40vw;
+    padding: 1.3vw;
+    background-color: transparent;
+    border: 1px rgb(150, 0, 150) solid;
+}
+
+.sendBtn {
+    padding: 1.3vw;
+    font-size: 1.2vw;
+    color: rgb(150, 0, 150);
+    border: 1px rgb(150, 0, 150) solid;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+
+    .writeText {
+        font-size: 4vw;
+        width: 50vw;
+        padding: 3vw;
+    }
+    
+    .sendBtn {
+        font-size: 4vw;
+        padding: 3vw;
+    }
+}

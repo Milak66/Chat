@@ -1,0 +1,40 @@
+.start {
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    border-bottom: 1px rgb(150, 0, 150) solid;
+    position: fixed; 
+    z-index: 100;
+    background-color: black;
+}
+
+.menu {
+    width: 95%;
+    display: grid;
+    grid-template-columns: 55vw 15vw 15vw 15vw;
+    align-items: center;
+}
+
+.logoOfSettings {
+    font-size: 2vw;
+    color: rgb(150, 0, 150);
+}
+
+.willBeAddedText {
+    font-size: 1.3vw;
+    color: rgb(150, 0, 150);
+}
+
+.clearChat {
+    display: flex;
+}
+
+.clearChatBtn {
+    padding: 1vw;
+    color: black;
+    border-radius: 2vw;
+    font-size: 1.3vw;
+    background-color:rgb(150, 0, 150);
+    border: none;
+    cursor: pointer;
+}
