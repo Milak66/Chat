@@ -12,7 +12,7 @@ const Start: React.FC<StartProps> = (): React.JSX.Element => {
 
     const handleClearChat = async () => {
         try {
-            const response = await fetch('https://chat-api-watz.onrender.com/clearChat', {
+            const response = await fetch('https://chat-api-y8is.onrender.com/clearChat', {
                 method: 'POST'
             });
             const data = await response.json();

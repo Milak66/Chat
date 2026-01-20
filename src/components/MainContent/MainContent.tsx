@@ -49,7 +49,7 @@ const MainContent: React.FC<MainContentProps> = () => {
 
     async function fetchMessages() {
         try {
-            const response = await fetch('https://chat-api-watz.onrender.com/messages');
+            const response = await fetch('https://chat-api-y8is.onrender.com/messages');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
