@@ -1,11 +1,14 @@
 import React from "react";
 import './Start.css';
-// import { useDispatch } from "react-redux";
-// import { AppDispatch } from "../store/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store/Store";
+import { onTryGetMessages } from "../reduser/Reduser";
 
 interface StartProps {};
 
 const Start: React.FC<StartProps> = (): React.JSX.Element => {
+
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleClearChat = async () => {
         try {
@@ -14,6 +17,7 @@ const Start: React.FC<StartProps> = (): React.JSX.Element => {
             });
             const data = await response.json();
             console.log(data);
+            dispatch(onTryGetMessages(true));
         } catch (error) {
             console.error('Ошибка при отчищении чата:', error);
         }

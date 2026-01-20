@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
 import './WriteMessage.css';
 import { useSelector } from "react-redux";
-import { RootState } from "../store/Store"
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/Store";
-import { createMessage, onOpenAdminSettings } from "../reduser/Reduser";
+import { RootState, AppDispatch } from "../store/Store";
+import { createMessage, onOpenAdminSettings, onTryGetMessages } from "../reduser/Reduser";
 
 interface WriteMessageProps {};
 
@@ -26,13 +25,13 @@ const WriteMessage: React.FC<WriteMessageProps> = (): React.JSX.Element => {
         if (message.trim().length > 0) {
             dispatch(createMessage(""));
 
+            if (inputRef.current) {
+                inputRef.current.value = "";
+            }
+
             if (message === "666999") {
                 handleOpenAdminSettings(true);
                 return;
-            }
-
-            if (inputRef.current) {
-                inputRef.current.value = "";
             }
 
             try {
@@ -45,6 +44,7 @@ const WriteMessage: React.FC<WriteMessageProps> = (): React.JSX.Element => {
                 });
                 const data = await response.json();
                 console.log(data);
+                dispatch(onTryGetMessages(true));
             } catch (error) {
                 console.error('Ошибка при отправке сообщения:', error);
             }

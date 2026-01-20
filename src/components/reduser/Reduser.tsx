@@ -1,19 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface ChatMessage {
-    id: string; 
     message: string;
 }
 
 interface InitialState {
     isAdminSettingsOpen: boolean;
     message: string;
+    tryGetMessage: boolean;
     userChat: ChatMessage[];
 }
 
 const initialState: InitialState = {
     isAdminSettingsOpen: false,
     message: "",
+    tryGetMessage: true,
     userChat: []
 };
 
@@ -27,12 +28,20 @@ const chatSlice = createSlice({
         createMessage: (state, action: PayloadAction<string>) => {
             state.message = action.payload;
         },
+        onTryGetMessages: (state, action: PayloadAction<boolean>) => {
+            state.tryGetMessage = action.payload;
+        },
         setUserChat: (state, action: PayloadAction<ChatMessage[]>) => {
             state.userChat = action.payload;
         }
     }
 });
 
-export const { onOpenAdminSettings, createMessage, setUserChat } = chatSlice.actions;
+export const { 
+    onOpenAdminSettings, 
+    createMessage, 
+    onTryGetMessages,
+    setUserChat 
+} = chatSlice.actions;
 
 export default chatSlice.reducer;

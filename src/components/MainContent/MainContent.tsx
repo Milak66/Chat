@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import './MainContent.css';
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../store/Store";
-import { ChatMessage, setUserChat } from "../reduser/Reduser";
+import { ChatMessage, setUserChat, onTryGetMessages } from "../reduser/Reduser";
 
 interface MainContentProps {};
 interface ChatGrettingProps {};
@@ -25,7 +25,7 @@ const ChatWithUser: React.FC<ChatWithUserProps> = () => {
 
     const showChat = () => {
         return userChat.map((letter, index) => (
-            <div className="userMessage" key={letter.id || index}>
+            <div className="userMessage" key={index}>
                 <span className="userLogo">User:</span>
                 <div className="userText">{letter.message}</div>
             </div>
@@ -43,25 +43,30 @@ const MainContent: React.FC<MainContentProps> = () => {
 
     const userChat = useSelector((state: RootState) => state.reduser.userChat);
 
+    const tryGetMessage = useSelector((state: RootState) => state.reduser.tryGetMessage);
+
     const dispatch = useDispatch<AppDispatch>();
 
-    useEffect(() => {
-        async function fetchMessages() {
-            try {
-                const response = await fetch('https://chat-api-watz.onrender.com/messages');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const messages: ChatMessage[] = await response.json();
-                console.log('Полученные сообщения:', messages);
-                dispatch(setUserChat(messages));
-            } catch (error) {
-                console.error('Ошибка при получении сообщений:', error);
+    async function fetchMessages() {
+        try {
+            const response = await fetch('https://chat-api-watz.onrender.com/messages');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        };
-    
-        fetchMessages();
-    }, [userChat]);
+            const messages: ChatMessage[] = await response.json();
+            console.log('Полученные сообщения:', messages);
+            dispatch(setUserChat(messages));
+        } catch (error) {
+            console.error('Ошибка при получении сообщений:', error);
+        }
+    };
+
+    useEffect(() => {
+        if (tryGetMessage) {
+            fetchMessages();
+            dispatch(onTryGetMessages(false));
+        }
+    }, [tryGetMessage]);
 
     const typeOfChat = () => {
         if (userChat.length > 0) {
