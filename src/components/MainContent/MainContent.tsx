@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import './MainContent.css';
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../store/store";
+import { RootState, AppDispatch } from "../store/Store";
 import { ChatMessage, setUserChat } from "../reduser/Reduser";
 
 interface MainContentProps {};

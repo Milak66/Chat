@@ -5,9 +5,7 @@ import Start from "../Start/Start";
 import MainContent from "../MainContent/MainContent";
 import WriteMessage from "../WriteMessage/WriteMessage";
 import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
+import { RootState } from "../store/Store";
 
 interface AppProps {};
 

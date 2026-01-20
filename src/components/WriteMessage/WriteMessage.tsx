@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import './WriteMessage.css';
 import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
+import { RootState } from "../store/Store"
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
+import { AppDispatch } from "../store/Store";
 import { createMessage, onOpenAdminSettings } from "../reduser/Reduser";
 
 interface WriteMessageProps {};
