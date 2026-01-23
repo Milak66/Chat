@@ -16,8 +16,11 @@ const Start: React.FC<StartProps> = (): React.JSX.Element => {
                 method: 'POST'
             });
             const data = await response.json();
-            console.log(data);
-            dispatch(onTryGetMessages(true));
+            if (response.ok && data.success) {
+                dispatch(onTryGetMessages(true));
+            } else {
+                console.error('Ошибка при добавлении сообщения:', data.error);
+            }
         } catch (error) {
             console.error('Ошибка при отчищении чата:', error);
         }
