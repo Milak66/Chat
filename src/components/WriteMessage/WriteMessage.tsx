@@ -43,8 +43,11 @@ const WriteMessage: React.FC<WriteMessageProps> = (): React.JSX.Element => {
                     body: JSON.stringify({ message }),
                 });
                 const data = await response.json();
-                console.log(data);
-                dispatch(onTryGetMessages(true));
+                if (response.ok && data.success) {
+                    dispatch(onTryGetMessages(true));
+                } else {
+                    console.error('Ошибка при добавлении сообщения:', data.error);
+                }
             } catch (error) {
                 console.error('Ошибка при отправке сообщения:', error);
             }
