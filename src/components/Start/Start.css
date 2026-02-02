@@ -1,11 +1,10 @@
 .start {
     display: flex;
-    height: 10vh;
+    height: 5vw;
     justify-content: center;
     border-bottom: 1px rgb(150, 0, 150) solid;
     position: fixed; 
     z-index: 100;
-    background-color: black;
 }
 
 .menu {
@@ -37,4 +36,28 @@
     background-color:rgb(150, 0, 150);
     border: none;
     cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+    .start {
+        height: 15vw;
+    }
+
+    .menu {
+       grid-template-columns: 40vw 20vw 20vw 20vw;
+    }
+
+    .logoOfSettings {
+       font-size: 5vw;
+    }
+    
+    .willBeAddedText {
+        font-size: 3vw;
+    }
+    
+    .clearChatBtn {
+        padding: 2vw;
+        border-radius: 4vw;
+        font-size: 3vw;
+    }
 }

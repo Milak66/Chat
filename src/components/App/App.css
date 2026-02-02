@@ -1,35 +1,11 @@
-.loadingPlace {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50vw;
-}
-
-.siteLoading {
-    font-size: 2.2vw;
-    margin-top: 2vw;
-}
-
-.photoLoading {
-    width: 20vw;
-}
-
-.codePlace {
-    height: 10vh;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px rgb(150, 0, 150) solid;
-}
-
-.code {
-    text-align: center;
-    width: 1vw;
-    color: rgb(150, 0, 150);
-}
-
 .chat {
     display: grid;
     height: 100vh;
-    grid-template-rows: 10vh 75vh 15vh;
+    grid-template-rows: 5vw 40vw 5vw;
+}
+
+@media all and (max-width: 768px) {
+    .chat {
+        grid-template-rows: 15vw 112vw 15vw;
+    }
 }
